@@ -1,0 +1,8 @@
+{
+  "name": "citrus-pulp",
+  "description": "A simple, lightweight, and fast Node.js tool to build static webpages from Markdown files, with support for easy AWS S3 and cloudfront deployments.",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Parthipan-Natkunam",
+  "license": "MIT"
+}
