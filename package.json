@@ -4,5 +4,6 @@
   "version": "0.0.1",
   "main": "index.js",
   "author": "Parthipan-Natkunam",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
