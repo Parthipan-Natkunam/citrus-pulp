@@ -10,12 +10,12 @@ An experimental static site generator from markdown source files with a one comm
 
 ##### Phase 1
 - [x] Add an MVP feature to parse md files to html based on the supplied config.
+- [x] Migrate to Typescript.
 - [ ] Add support for per-page metadata.
-- [ ] Autoformat html befor writing to disk.
+- [ ] Autoformat html before writing to disk.
 - [ ] Add global css support.
 - [ ] Add per-page CSS support.
 - [ ] Refactor and modularize code.
-- [ ] Migrate to Typescript.
 - [ ] Add tests.
 - [ ] Create a CLI.
 - [ ] Add S3 Upload functionality.
@@ -32,7 +32,7 @@ An experimental static site generator from markdown source files with a one comm
 
 ##### Phase 4
 - [ ] Add MDX format support.
-- [ ] Add support for contentful.
+- [ ] Add support for Contentful.
 - [ ] Add support for Strapi.
 
 ##### Phase 5
