@@ -5,10 +5,12 @@ import showdown from 'showdown';
 import config from '../citrus-pulp-config.js';
 import { CitrusPulpConfig } from './types.js';
 import { replaceMDLinksToHTML } from './converterPlugins.js';
+import themesMap from './themesMap.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = path.join(__dirname, '../../');
+const themeStyleDir = path.join(__dirname, '../../', 'themes');
 
 class CitrusPulp {
     private config: CitrusPulpConfig;
@@ -21,9 +23,10 @@ class CitrusPulp {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Static Site</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>`;
+    <body>
+    `;
     private readonly HTMLPostamble: string = `</body></html>`;
 
     constructor() {
@@ -90,6 +93,28 @@ class CitrusPulp {
         });
     }
 
+    private generateThemeCSSFile():Promise<void> {
+        const themeStylePath = path.join(themeStyleDir, themesMap[this.config.theme]);
+
+        return new Promise((resolve, reject) => {
+            fs.readFile(themeStylePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error reading theme CSS file:', err);
+                    reject(err);
+                    return;
+                }
+                fs.writeFile(path.join(rootDir, this.config.outputDir, 'style.css'), data, (err) => {
+                    if (err) {
+                        console.error('Error writing theme CSS file:', err);
+                        reject(err);
+                        return;
+                    }
+                    resolve();
+                });
+            });
+        });
+    }
+
     private writeHTMLFilesToDisk(htmlContent: string, file?: string): void {
         const outputDirPath = path.join(rootDir, this.config.outputDir);
 
@@ -128,6 +153,7 @@ class CitrusPulp {
     async init(): Promise<void> {
         await this.getAllMarkdownFileNames();
         await this.iterateOverMarkdownFiles();
+        await this.generateThemeCSSFile();
     }
 }
 
