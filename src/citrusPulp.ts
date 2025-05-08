@@ -4,6 +4,7 @@ import path, { dirname } from 'path';
 import showdown from 'showdown';
 import config from '../citrus-pulp-config.js';
 import { CitrusPulpConfig } from './types.js';
+import { replaceMDLinksToHTML } from './converterPlugins.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,6 +36,7 @@ class CitrusPulp {
             tables: true,
             tasklists: true,
             underline: true,
+            extensions: [replaceMDLinksToHTML]
         });
         this.files = new Set<string>();
         this.filesConverted = 0;
