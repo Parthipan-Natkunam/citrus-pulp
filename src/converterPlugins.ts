@@ -1,3 +1,5 @@
+import highlight from 'showdown-highlight';
+
 import type { ShowdownExtension } from 'showdown';
 
 const replaceMDLinksToHTML : ShowdownExtension = {
@@ -6,4 +8,9 @@ const replaceMDLinksToHTML : ShowdownExtension = {
     replace: `[$1]($2.html)`
 };
 
-export { replaceMDLinksToHTML };
+const highlightCode : ShowdownExtension[] = highlight({
+    pre: true,
+    auto_detection: true
+});
+
+export { replaceMDLinksToHTML, highlightCode };

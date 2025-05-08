@@ -164,6 +164,7 @@ input[type="checkbox"] {
     vertical-align: middle;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -202,4 +203,99 @@ input[type="checkbox"] {
         background: #f5f5f5;
         border: 1px solid #ddd;
     }
+}
+
+/* Syntax Highlighting */
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+code.hljs {
+    padding: 3px 5px;
+}
+
+.hljs {
+    background: var(--code-bg);
+    color: var(--text-primary);
+}
+
+.hljs-comment {
+    color: #6a9955;
+}
+
+.hljs-punctuation,
+.hljs-tag {
+    color: #808080;
+}
+
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+    color: #569cd6;
+}
+
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+    color: #c586c0;
+    font-weight: 700;
+}
+
+.hljs-deletion,
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+    color: #ce9178;
+}
+
+.hljs-section,
+.hljs-title {
+    color: #4ec9b0;
+    font-weight: 700;
+}
+
+.hljs-link,
+.hljs-operator,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+    color: #dcdcaa;
+}
+
+.hljs-literal {
+    color: #b5cea8;
+}
+
+.hljs-addition,
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+    color: #4ec9b0;
+}
+
+.hljs-meta {
+    color: #9cdcfe;
+}
+
+.hljs-meta .hljs-string {
+    color: #ce9178;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
 }
